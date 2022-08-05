@@ -23,7 +23,6 @@ class GeometriaTest {
 		geometria=null;
 	}
 	
-	/////////// Marc ////////////
 	
 	@Test
 	public void testAreaCuadrado() {
@@ -82,7 +81,8 @@ class GeometriaTest {
 		assertEquals(esp, res.getNom());
 	}
 	
-	/////////// Jaume ////////////
+
+	
 	
 	@Test
 	public void testArearombo() {
