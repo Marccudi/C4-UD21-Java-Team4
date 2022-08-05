@@ -25,7 +25,38 @@ class GeometriaTest {
 	
 	@Test
 	public void testAreaCuadrado() {
-		int res = Geometria.areacuadrado(4);
+		int res = geometria.areacuadrado(5);
+		int esp = 16;
+		assertEquals(res, esp);
+	}
+	
+	@Test
+	public void testAreaCirculo() {
+		double res = geometria.areaCirculo(8);
+		double esp = 201.06;
+		double delta = 0.5;
+		assertEquals(res, esp,delta);
+	}
+	
+	@Test
+	public void testAreaRectangulo() {
+		int res = geometria.arearectangulo(2, 4);
+		int esp = 8;
+		assertEquals(res, esp);
+	}
+	
+	@Test
+	public void testangulo() {
+		int res = geometria.areatriangulo(4, 2);
+		int esp = 4;
+		assertEquals(res, esp);
+	}
+	
+	@Test
+	public void testAreaPentagono() {
+		int res = geometria.areapentagono(4, 2);
+		int esp = 4;
+		assertEquals(res, esp);
 	}
 	
 	/////////// Jaume ////////////
