@@ -18,6 +18,8 @@ public class Geometria {
 		this.nom = "Default";
 	}
 
+	/////////// Marc ////////////
+	
 	//Métodos propios de clase Geometria
 	//metodo area del cuadrado
 	public int areacuadrado(int n1){
@@ -44,6 +46,8 @@ public class Geometria {
 	public int areapentagono(int p, int a){
 		return (p*a) / 2;
 		}
+	
+	/////////// Jaume ////////////
 	
 	//metodo area del rectangulo
 	public int arearombo(int D,int d){
