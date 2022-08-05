@@ -60,8 +60,8 @@ public class Geometria {
 		}
 	
 	//metodo area del rectangulo
-	public int areatrapecio (int B , int b , int h){ 
-		return ((B+b)/2)*h;
+	public int areatrapecio (int a , int b , int h){ 		
+		return ((a+b)/2)*h;
 		}
 	
 	//Selector de figuras

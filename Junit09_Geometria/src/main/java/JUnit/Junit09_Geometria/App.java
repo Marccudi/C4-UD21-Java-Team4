@@ -11,6 +11,9 @@ public class App
 	   double areaCirc= gm.areaCirculo(2);
 	   gm.setArea(areaCirc);    
 	   System.out.println(gm);
+	   
+	  System.out.println(gm.areatrapecio(5, 4, 6));
+	   
     }
     
 }
