@@ -12,8 +12,6 @@ public class App
 	   gm.setArea(areaCirc);    
 	   System.out.println(gm);
 	   
-	  System.out.println(gm.areatrapecio(5, 4, 6));
-	   
     }
     
 }

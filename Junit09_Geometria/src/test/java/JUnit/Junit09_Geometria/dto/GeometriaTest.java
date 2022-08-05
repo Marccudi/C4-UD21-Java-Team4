@@ -25,6 +25,7 @@ class GeometriaTest {
 	
 	@Test
 	public void testAreaCuadrado() {
+		System.out.println("testAreaCuadrado()");
 		int res = geometria.areacuadrado(5);
 		int esp = 25;
 		assertEquals(esp, res);
@@ -32,6 +33,7 @@ class GeometriaTest {
 	
 	@Test
 	public void testAreaCirculo() {
+		System.out.println("testAreaCirculo()");
 		double res = geometria.areaCirculo(8);
 		double esp = 201.06;
 		double delta = 0.5;
@@ -40,13 +42,15 @@ class GeometriaTest {
 	
 	@Test
 	public void testAreaRectangulo() {
+		System.out.println("testAreaRectangulo()");
 		int res = geometria.arearectangulo(2, 4);
 		int esp = 8;
 		assertEquals(esp, res);
 	}
 	
 	@Test
-	public void testangulo() {
+	public void testAngulo() {
+		System.out.println("testAngulo()");
 		int res = geometria.areatriangulo(4, 2);
 		int esp = 4;
 		assertEquals(esp, res);
@@ -54,6 +58,7 @@ class GeometriaTest {
 	
 	@Test
 	public void testAreaPentagono() {
+		System.out.println("testAreaPentagono()");
 		int res = geometria.areapentagono(4, 2);
 		int esp = 4;
 		assertEquals(esp, res);
@@ -128,5 +133,27 @@ class GeometriaTest {
 		esp="Default";
 		assertEquals(esp, res);
 	}
+	
+	@Test
+	public void testConstructor1() {
+		System.out.println("testConstructor1()");
+		Geometria geo1= new Geometria(3);
+		String res=geo1.getNom();
+		String esp="Triangulo";
+		assertEquals(esp, res);
+	}
+	
+	@Test
+	public void testToString() {
+		System.out.println("testToString()");
+		
+		double area= geometria.arearombo(5, 4);
+		geometria.setArea(area);
+		
+		String res=geometria.toString();
+		String esp="Geometria [id=" + geometria.getId() + ", nom=" + geometria.getNom() + ", area=" + geometria.getArea() + "]";
+		assertEquals(esp, res);
+	}
+
 
 }
