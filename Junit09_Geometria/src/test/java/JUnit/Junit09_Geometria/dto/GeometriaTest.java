@@ -12,7 +12,10 @@ class GeometriaTest {
 	
 	/////////// Marc ////////////
 	
-	
+	@Test
+	public void testAreaCuadrado() {
+		int res = Geometria.areacuadrado(4);
+	}
 	
 	/////////// Jaume ////////////
 
