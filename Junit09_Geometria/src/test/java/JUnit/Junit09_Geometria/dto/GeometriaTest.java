@@ -5,6 +5,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import JUnit.Junit09_Geometria.App;
+
 class GeometriaTest {
 
 	Geometria geometria;
@@ -170,6 +172,4 @@ class GeometriaTest {
 		String esp="Geometria [id=" + geometria.getId() + ", nom=" + geometria.getNom() + ", area=" + geometria.getArea() + "]";
 		assertEquals(esp, res);
 	}
-
-
 }
