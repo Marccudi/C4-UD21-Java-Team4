@@ -65,13 +65,6 @@ class GeometriaTest {
 	}
 	
 	@Test
-	public void testGetId() {
-		Geometria res = new Geometria(1);
-		int esp = 1;
-		assertEquals(esp, res.getId());
-	}
-	
-	@Test
 	public void testSetId() {
 		Geometria res = new Geometria(1);
 		res.setId(2);
@@ -80,34 +73,11 @@ class GeometriaTest {
 	}
 	
 	@Test
-	public void testGetNom() {
-		Geometria res = new Geometria(1);
-		String esp = "cuadrado";
-		assertEquals(esp, res.getNom());
-	}
-	
-	@Test
 	public void testSetNom() {
 		Geometria res = new Geometria(1);
 		res.setNom("cuadro");
 		String esp = "cuadro";
 		assertEquals(esp, res.getNom());
-	}
-	
-	@Test
-	public void testGetArea() {
-		Geometria res = new Geometria(1);
-		res.setArea(res.areacuadrado(2));
-		double esp = 4;
-		assertEquals(esp, res.getArea());
-	}
-
-	@Test
-	public void testSetArea() {
-		Geometria res=new Geometria(1);
-		res.setArea(res.areacuadrado(2));
-		double esp=4;
-		assertEquals(esp, res.getArea());
 	}
 	
 	/////////// Jaume ////////////
