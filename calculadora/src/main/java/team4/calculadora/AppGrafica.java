@@ -8,27 +8,13 @@ public class AppGrafica {
 
 	private JFrame frame;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AppGrafica window = new AppGrafica();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.
 	 */
 	public AppGrafica() {
 		initialize();
+		frame.setVisible(true);
 	}
 
 	/**
