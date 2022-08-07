@@ -47,6 +47,13 @@ public class AppGrafica {
 		JButton ButtonDel = new JButton("Del");
 		ButtonDel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String num=moneda1.getText();
+				if(num.length()==1) {
+					moneda1.setText("0");
+				}else {
+					moneda1.setText(num.substring(0, num.length()-1));
+				}		
+				
 			}
 		});
 		ButtonDel.setFont(new Font("Tahoma", Font.PLAIN, 26));
@@ -272,6 +279,7 @@ public class AppGrafica {
 		Button8.addActionListener(e -> botonNum("8"));
 		Button9.addActionListener(e -> botonNum("9"));
 		Button0.addActionListener(e -> botonNum("0"));
+		ButtonComa.addActionListener(e -> botonNum(","));
 
 		
 	}
