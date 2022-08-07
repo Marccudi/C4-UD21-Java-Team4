@@ -76,7 +76,17 @@ public class Metodos {
 		divisas.add(new Divisa("JPY","¥", "Yen","Japon", 133));
 		divisas.add(new Divisa("JOD","د.أ", "Dinar","Jordania", 0.708));
 		divisas.add(new Divisa("KZT","₸", "Tenge","Kazajistan", 477.44));
-		divisas.add(new Divisa("KES","KSh", "Chelin","Kenia", 119.10));
+		divisas.add(new Divisa("KES","KSh", "Chelin","Kenia", 119.10));	
+		divisas.add(new Divisa("KWD","د.ك", "Dinar","Kuwait",0.306));
+		divisas.add(new Divisa("LAK","₭", "Kip","Laos", 15194));
+		divisas.add(new Divisa("LSL","L", "Loti","Lesotso", 16.61));
+		divisas.add(new Divisa("LBP","ل.ل", "Libra","Libano", 1505.70));
+		divisas.add(new Divisa("LRD","$", "Dolar","Liberia", 151.50));
+		divisas.add(new Divisa("LYD","ل.د,", "Dinar","Libia", 4.863));
+		divisas.add(new Divisa("MOP","P", "Pataca","Macao RAE", 8.09));
+		divisas.add(new Divisa("MKD","ден", "Denar","Macedonia del Norte", 60.13));
+		divisas.add(new Divisa("MGA","Ar", "Ariary de Madagascar","Madagascar", 4121));
+		divisas.add(new Divisa("MYR","RM", "Ringgit","Malasia", 4.45));
 		
 		//return divisas;
 	}
