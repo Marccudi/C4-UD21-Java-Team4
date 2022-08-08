@@ -306,7 +306,7 @@ public class AppGrafica {
 		
 	}
 	
-	public static void rellenaCombobox(JComboBox combo) {
+	public static void rellenaCombobox(JComboBox<String> combo) {
 		
 		Metodos.generarDivisas();
 		ArrayList<Divisa> arrayList = Metodos.devolverDivisas();
