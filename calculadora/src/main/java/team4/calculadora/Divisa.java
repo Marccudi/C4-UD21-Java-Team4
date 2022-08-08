@@ -59,8 +59,7 @@ public class Divisa {
 
 	@Override
 	public String toString() {
-		return "Divisa [id=" + id + ", simbolo=" + simbolo + ", nombre=" + nombre + ", pais=" + pais + ", valorDolar="
-				+ valorDolar + "]";
+		return nombre;
 	}
 		
 }

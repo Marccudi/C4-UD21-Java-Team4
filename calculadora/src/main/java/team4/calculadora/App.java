@@ -10,9 +10,9 @@ public class App
 {
     public static void main( String[] args )
     {
+    	Metodos.generarDivisas();
     	AppGrafica window = new AppGrafica();
     	
-    	Metodos.generarDivisas();
     	double moneda=Metodos.cambio(66, "EUR", "GBP");
     	System.out.println(moneda);
     	
