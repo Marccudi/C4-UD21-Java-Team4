@@ -27,6 +27,12 @@ public class AppGrafica {
 	private JFrame frmMoneda;
 	
 	private static JLabel moneda1;
+	private static JLabel moneda2;
+	
+	private JComboBox selecMoneda1;
+	private JComboBox selecMoneda2;
+	private JLabel simbolo1;
+	private JLabel simbolo2;
 
 	/**
 	 * Create the application.
@@ -190,26 +196,25 @@ public class AppGrafica {
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		
-		JComboBox selecMoneda2 = new JComboBox();
+		selecMoneda2 = new JComboBox();
 		
-		JLabel moneda2 = new JLabel("0");
+		moneda2 = new JLabel("0");
 		moneda2.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		
-		JLabel simbolo2 = new JLabel("$");
+		simbolo2 = new JLabel("$");
 		simbolo2.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		GroupLayout gl_panelMon2 = new GroupLayout(panelMon2);
 		gl_panelMon2.setHorizontalGroup(
 			gl_panelMon2.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panelMon2.createSequentialGroup()
 					.addContainerGap()
-					.addGroup(gl_panelMon2.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panelMon2.createParallelGroup(Alignment.LEADING)
-							.addComponent(moneda2, GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
-							.addGroup(gl_panelMon2.createSequentialGroup()
-								.addComponent(selecMoneda2, 0, 183, Short.MAX_VALUE)
-								.addContainerGap()))
-						.addGroup(Alignment.TRAILING, gl_panelMon2.createSequentialGroup()
-							.addComponent(simbolo2, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
+					.addGroup(gl_panelMon2.createParallelGroup(Alignment.TRAILING)
+						.addComponent(moneda2, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+						.addGroup(Alignment.LEADING, gl_panelMon2.createSequentialGroup()
+							.addComponent(selecMoneda2, 0, 183, Short.MAX_VALUE)
+							.addContainerGap())
+						.addGroup(gl_panelMon2.createSequentialGroup()
+							.addComponent(simbolo2, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 							.addContainerGap())))
 		);
 		gl_panelMon2.setVerticalGroup(
@@ -225,30 +230,29 @@ public class AppGrafica {
 		);
 		panelMon2.setLayout(gl_panelMon2);
 		
-		JComboBox selecMoneda1 = new JComboBox();
-		
+		selecMoneda1 = new JComboBox();
 		rellenaCombobox(selecMoneda1);
 		rellenaCombobox(selecMoneda2);
 		
 		moneda1 = new JLabel("0");
 		moneda1.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		
-		JLabel simbolo1 = new JLabel("$");
+		simbolo1 = new JLabel("$");
 		simbolo1.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		GroupLayout gl_panelMon1 = new GroupLayout(panelMon1);
 		gl_panelMon1.setHorizontalGroup(
-			gl_panelMon1.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, gl_panelMon1.createSequentialGroup()
-					.addContainerGap(170, Short.MAX_VALUE)
-					.addComponent(simbolo1, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap())
+			gl_panelMon1.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_panelMon1.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(gl_panelMon1.createParallelGroup(Alignment.LEADING)
-						.addComponent(moneda1, GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
-						.addGroup(gl_panelMon1.createSequentialGroup()
-							.addComponent(selecMoneda1, GroupLayout.PREFERRED_SIZE, 183, GroupLayout.PREFERRED_SIZE)
-							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+						.addGroup(gl_panelMon1.createParallelGroup(Alignment.LEADING)
+							.addComponent(moneda1, GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+							.addGroup(gl_panelMon1.createSequentialGroup()
+								.addComponent(selecMoneda1, GroupLayout.PREFERRED_SIZE, 183, GroupLayout.PREFERRED_SIZE)
+								.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+						.addGroup(Alignment.TRAILING, gl_panelMon1.createSequentialGroup()
+							.addComponent(simbolo1, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
+							.addGap(10))))
 		);
 		gl_panelMon1.setVerticalGroup(
 			gl_panelMon1.createParallelGroup(Alignment.TRAILING)
@@ -285,10 +289,11 @@ public class AppGrafica {
 		Button0.addActionListener(e -> botonNum("0"));
 		ButtonComa.addActionListener(e -> botonNum(","));
 
-		
+		// ComboBoxes listeners
+		selecMoneda1.addActionListener(e -> selecMoneda(e));
 	}
 	
-	private static void botonNum(String n) {
+	private void botonNum(String n) {
 		if(moneda1.getText()=="0") {
 			moneda1.setText(n);
 		}else {
@@ -298,7 +303,13 @@ public class AppGrafica {
 				String moneda=moneda1.getText();
 				moneda+= n;
 				moneda1.setText(moneda);
-				//hacer el calculo con selecMoneda1 y selecMoneda2
+				Divisa d1;
+				Divisa d2;
+				d1 = (Divisa) selecMoneda1.getSelectedItem();
+				d2 = (Divisa) selecMoneda2.getSelectedItem();
+
+				moneda2.setText(""+Metodos.cambio(Double.parseDouble(moneda1.getText()), d1.getSimbolo(), d2.getSimbolo()));
+				
 				
 			}
 			
@@ -306,7 +317,7 @@ public class AppGrafica {
 		
 	}
 	
-	public static void rellenaCombobox(JComboBox combo) {
+	public void rellenaCombobox(JComboBox combo) {
 		
 		Metodos.generarDivisas();
 		ArrayList<Divisa> arrayList = Metodos.devolverDivisas();
@@ -314,15 +325,22 @@ public class AppGrafica {
 		if (arrayList != null && arrayList.size() > 0) {
 			for (Divisa divisa : arrayList) {
 
-				combo.addItem(divisa.nombre+" - "+divisa.pais);
-				if (combo.getSelectedItem() == "Dolar - Estados Unidos") {
-					
-				}
-				System.out.println(combo.getSelectedIndex());
-
+				combo.addItem(divisa);
 			}
 		}
 	}
+
+	public void selecMoneda(ActionEvent e) {
+		Divisa d;
+        if(e.getSource() == selecMoneda1) {
+        	d = (Divisa) selecMoneda1.getSelectedItem();
+            simbolo1.setText(d.simbolo);
+        } else if(e.getSource() == selecMoneda2) {
+        	d = (Divisa) selecMoneda2.getSelectedItem();
+            simbolo1.setText(d.simbolo);
+        }
+    }
+
 	
 	
 }

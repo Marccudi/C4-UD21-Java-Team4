@@ -6,6 +6,10 @@ public class Metodos {
 	
 	private static ArrayList<Divisa> divisas;
 	
+	public static ArrayList<Divisa> getDivisas() {
+		return divisas;
+	}
+
 	public static void generarDivisas() {
 		divisas=new ArrayList<>();
 		
