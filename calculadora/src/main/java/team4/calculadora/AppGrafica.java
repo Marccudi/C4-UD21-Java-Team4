@@ -308,8 +308,8 @@ public class AppGrafica {
 				d1 = (Divisa) selecMoneda1.getSelectedItem();
 				d2 = (Divisa) selecMoneda2.getSelectedItem();
 
-				moneda2.setText(""+Metodos.cambio(Double.parseDouble(moneda1.getText()), d1.getSimbolo(), d2.getSimbolo()));
-				
+				double calc = Double.parseDouble(moneda1.getText());
+				moneda2.setText(""+Metodos.cambio(calc, d1.getId(), d2.getId()));
 				
 			}
 			
