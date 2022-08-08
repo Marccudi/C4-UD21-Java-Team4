@@ -320,6 +320,7 @@ public class AppGrafica {
             simbolo1.setText(d.simbolo);
         }
     }
+
 	
 	
 }
