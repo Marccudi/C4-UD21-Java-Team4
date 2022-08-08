@@ -1,5 +1,6 @@
 package team4.calculadora;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Metodos {
@@ -116,6 +117,6 @@ public class Metodos {
 			}			
 		}
 		
-		return res;
+		return Math.round(res * 100d) / 100d;
 	}
 }

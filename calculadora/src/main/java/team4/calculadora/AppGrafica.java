@@ -59,7 +59,8 @@ public class AppGrafica {
 					moneda1.setText("0");
 				}else {
 					moneda1.setText(num.substring(0, num.length()-1));
-				}		
+				}
+				cambio();
 				
 			}
 		});
@@ -208,13 +209,13 @@ public class AppGrafica {
 			gl_panelMon2.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panelMon2.createSequentialGroup()
 					.addContainerGap()
-					.addGroup(gl_panelMon2.createParallelGroup(Alignment.TRAILING)
-						.addComponent(moneda2, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
-						.addGroup(Alignment.LEADING, gl_panelMon2.createSequentialGroup()
+					.addGroup(gl_panelMon2.createParallelGroup(Alignment.LEADING)
+						.addComponent(moneda2, GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+						.addGroup(gl_panelMon2.createSequentialGroup()
 							.addComponent(selecMoneda2, 0, 183, Short.MAX_VALUE)
 							.addContainerGap())
-						.addGroup(gl_panelMon2.createSequentialGroup()
-							.addComponent(simbolo2, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+						.addGroup(Alignment.TRAILING, gl_panelMon2.createSequentialGroup()
+							.addComponent(simbolo2, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE)
 							.addContainerGap())))
 		);
 		gl_panelMon2.setVerticalGroup(
@@ -244,15 +245,14 @@ public class AppGrafica {
 			gl_panelMon1.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_panelMon1.createSequentialGroup()
 					.addContainerGap()
-					.addGroup(gl_panelMon1.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panelMon1.createParallelGroup(Alignment.LEADING)
-							.addComponent(moneda1, GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
-							.addGroup(gl_panelMon1.createSequentialGroup()
-								.addComponent(selecMoneda1, GroupLayout.PREFERRED_SIZE, 183, GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-						.addGroup(Alignment.TRAILING, gl_panelMon1.createSequentialGroup()
-							.addComponent(simbolo1, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
-							.addGap(10))))
+					.addGroup(gl_panelMon1.createParallelGroup(Alignment.TRAILING)
+						.addComponent(moneda1, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+						.addGroup(Alignment.LEADING, gl_panelMon1.createSequentialGroup()
+							.addComponent(selecMoneda1, GroupLayout.PREFERRED_SIZE, 183, GroupLayout.PREFERRED_SIZE)
+							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+						.addGroup(gl_panelMon1.createSequentialGroup()
+							.addComponent(simbolo1, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
+							.addContainerGap())))
 		);
 		gl_panelMon1.setVerticalGroup(
 			gl_panelMon1.createParallelGroup(Alignment.TRAILING)
@@ -272,6 +272,7 @@ public class AppGrafica {
 		ButtonCE.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				moneda1.setText("0");
+				cambio();
 			}
 		});
 		
@@ -287,7 +288,7 @@ public class AppGrafica {
 		Button8.addActionListener(e -> botonNum("8"));
 		Button9.addActionListener(e -> botonNum("9"));
 		Button0.addActionListener(e -> botonNum("0"));
-		ButtonComa.addActionListener(e -> botonNum(","));
+		ButtonComa.addActionListener(e -> botonNum("."));
 
 		// ComboBoxes listeners
 		selecMoneda1.addActionListener(e -> selecMoneda(e));
@@ -302,45 +303,45 @@ public class AppGrafica {
 			} else {
 				String moneda=moneda1.getText();
 				moneda+= n;
-				moneda1.setText(moneda);
-				Divisa d1;
-				Divisa d2;
-				d1 = (Divisa) selecMoneda1.getSelectedItem();
-				d2 = (Divisa) selecMoneda2.getSelectedItem();
 
-				double calc = Double.parseDouble(moneda1.getText());
-				moneda2.setText(""+Metodos.cambio(calc, d1.getId(), d2.getId()));
-				
+				moneda1.setText(moneda);	
+				cambio();
 			}
-			
-		}
-		
+		}	
 	}
 	
-	public void rellenaCombobox(JComboBox combo) {
-		
-		Metodos.generarDivisas();
-		ArrayList<Divisa> arrayList = Metodos.devolverDivisas();
-		
-		if (arrayList != null && arrayList.size() > 0) {
-			for (Divisa divisa : arrayList) {
+	public static void rellenaCombobox(JComboBox<Divisa> combo) {
 
-				combo.addItem(divisa);
-			}
-		}
-	}
+        Metodos.generarDivisas();
+        ArrayList<Divisa> arrayList = Metodos.devolverDivisas();
 
+        if (arrayList != null && arrayList.size() > 0) {
+            for (Divisa divisa : arrayList) {
+                combo.addItem(divisa);
+            }
+        }
+    }
+	
 	public void selecMoneda(ActionEvent e) {
 		Divisa d;
         if(e.getSource() == selecMoneda1) {
         	d = (Divisa) selecMoneda1.getSelectedItem();
             simbolo1.setText(d.simbolo);
+            cambio();
         } else if(e.getSource() == selecMoneda2) {
         	d = (Divisa) selecMoneda2.getSelectedItem();
             simbolo1.setText(d.simbolo);
+            cambio();
         }
+        
     }
 
-	
+	public void cambio() {
+		Divisa d1;
+		Divisa d2;
+		d1 = (Divisa) selecMoneda1.getSelectedItem();
+		d2 = (Divisa) selecMoneda2.getSelectedItem();
+		moneda2.setText(""+Metodos.cambio(Double.parseDouble(moneda1.getText()), d1.getId(), d2.getId()));
+	}
 	
 }
