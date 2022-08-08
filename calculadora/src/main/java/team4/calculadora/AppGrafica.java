@@ -231,7 +231,8 @@ public class AppGrafica {
 		panelMon2.setLayout(gl_panelMon2);
 		
 		selecMoneda1 = new JComboBox();
-		
+		rellenaCombobox(selecMoneda1);
+		rellenaCombobox(selecMoneda2);
 		
 		moneda1 = new JLabel("0");
 		moneda1.setFont(new Font("Tahoma", Font.PLAIN, 30));
@@ -309,6 +310,21 @@ public class AppGrafica {
 		}
 		
 	}
+	
+	public static void rellenaCombobox(JComboBox<Divisa> combo) {
+
+        Metodos.generarDivisas();
+        ArrayList<Divisa> arrayList = Metodos.devolverDivisas();
+
+        if (arrayList != null && arrayList.size() > 0) {
+            for (Divisa divisa : arrayList) {
+
+                combo.addItem(divisa);
+
+
+            }
+        }
+    }
 	
 	public void selecMoneda(ActionEvent e) {
 		Divisa d;

@@ -59,7 +59,7 @@ public class Divisa {
 
 	@Override
 	public String toString() {
-		return nombre;
+		return nombre + " - " + pais;
 	}
 		
 }
