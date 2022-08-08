@@ -226,6 +226,9 @@ public class AppGrafica {
 		
 		JComboBox selecMoneda1 = new JComboBox();
 		
+		rellenaCombobox(selecMoneda1);
+		rellenaCombobox(selecMoneda2);
+		
 		moneda1 = new JLabel("0");
 		moneda1.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		
@@ -299,5 +302,14 @@ public class AppGrafica {
 		}
 		
 	}
+	
+	private static void rellenaCombobox(JComboBox combo) {
+		combo.addItem("Estados Unidos - Dolar");
+		combo.addItem("Europa - Euro");
+		combo.addItem("Japon - yen");
+		combo.addItem("China - Yuan");
+		combo.addItem("Corea del sur - Won");
+	}
+	
 	
 }
