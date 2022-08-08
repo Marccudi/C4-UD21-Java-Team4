@@ -292,6 +292,7 @@ public class AppGrafica {
 
 		// ComboBoxes listeners
 		selecMoneda1.addActionListener(e -> selecMoneda(e));
+		selecMoneda2.addActionListener(e -> selecMoneda(e));
 	}
 	
 	private void botonNum(String n) {
