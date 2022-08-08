@@ -7,6 +7,6 @@ public class AppGraficaTest {
 
 	@Test
 	public void test() {
-		System.out.println("Hola");
+		AppGrafica window = new AppGrafica();
 	}
 }
