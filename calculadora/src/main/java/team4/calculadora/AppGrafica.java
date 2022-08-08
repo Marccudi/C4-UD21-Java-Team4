@@ -18,6 +18,7 @@ import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 
@@ -231,8 +232,6 @@ public class AppGrafica {
 		
 		selecMoneda1 = new JComboBox();
 		
-		rellenaCombobox(selecMoneda1);
-		rellenaCombobox(selecMoneda2);
 		
 		moneda1 = new JLabel("0");
 		moneda1.setFont(new Font("Tahoma", Font.PLAIN, 30));
@@ -297,22 +296,18 @@ public class AppGrafica {
 		if(moneda1.getText()=="0") {
 			moneda1.setText(n);
 		}else {
-			if (moneda1.getText().length()>12) {
+			if (moneda1.getText().length()>11) {
 				//FALTA
 			} else {
 				String moneda=moneda1.getText();
 				moneda+= n;
 				moneda1.setText(moneda);
+				//hacer el calculo con selecMoneda1 y selecMoneda2
+				
 			}
 			
 		}
 		
-	}
-	
-	private static void rellenaCombobox(JComboBox combo) {
-		for(Divisa d : Metodos.getDivisas()) {
-			combo.addItem(d);
-		}
 	}
 	
 	public void selecMoneda(ActionEvent e) {
