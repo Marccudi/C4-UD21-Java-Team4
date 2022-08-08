@@ -12,11 +12,5 @@ public class App
     {
     	Metodos.generarDivisas();
     	AppGrafica window = new AppGrafica();
-    	
-    	double moneda=Metodos.cambio(66, "EUR", "GBP");
-    	System.out.println(moneda);
-    	
-    	moneda=Metodos.cambio(66, "EUR", "USD");
-    	System.out.println(moneda);
     }
 }

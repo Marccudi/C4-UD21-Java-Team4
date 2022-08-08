@@ -315,7 +315,7 @@ public class AppGrafica {
 	public static void rellenaCombobox(JComboBox<Divisa> combo) {
 
         Metodos.generarDivisas();
-        ArrayList<Divisa> arrayList = Metodos.devolverDivisas();
+        ArrayList<Divisa> arrayList = Metodos.getDivisas();
 
         if (arrayList != null && arrayList.size() > 0) {
             for (Divisa divisa : arrayList) {
