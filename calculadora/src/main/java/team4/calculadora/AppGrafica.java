@@ -293,7 +293,7 @@ public class AppGrafica {
 		selecMoneda1.addActionListener(e -> selecMoneda(e));
 	}
 	
-	private static void botonNum(String n) {
+	private void botonNum(String n) {
 		if(moneda1.getText()=="0") {
 			moneda1.setText(n);
 		}else {
@@ -303,7 +303,13 @@ public class AppGrafica {
 				String moneda=moneda1.getText();
 				moneda+= n;
 				moneda1.setText(moneda);
-				//hacer el calculo con selecMoneda1 y selecMoneda2
+				Divisa d1;
+				Divisa d2;
+				d1 = (Divisa) selecMoneda1.getSelectedItem();
+				d2 = (Divisa) selecMoneda2.getSelectedItem();
+
+				moneda2.setText(""+Metodos.cambio(Double.parseDouble(moneda1.getText()), d1.getSimbolo(), d2.getSimbolo()));
+				
 				
 			}
 			
@@ -311,6 +317,7 @@ public class AppGrafica {
 		
 	}
 	
+<<<<<<< HEAD
 	public static void rellenaCombobox(JComboBox<Divisa> combo) {
 
         Metodos.generarDivisas();
@@ -326,6 +333,21 @@ public class AppGrafica {
         }
     }
 	
+=======
+	public void rellenaCombobox(JComboBox combo) {
+		
+		Metodos.generarDivisas();
+		ArrayList<Divisa> arrayList = Metodos.devolverDivisas();
+		
+		if (arrayList != null && arrayList.size() > 0) {
+			for (Divisa divisa : arrayList) {
+
+				combo.addItem(divisa);
+			}
+		}
+	}
+
+>>>>>>> branch 'main' of https://github.com/Marccudi/C4-UD21-Java-Team4
 	public void selecMoneda(ActionEvent e) {
 		Divisa d;
         if(e.getSource() == selecMoneda1) {
