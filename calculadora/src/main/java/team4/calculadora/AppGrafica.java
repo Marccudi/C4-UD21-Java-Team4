@@ -18,6 +18,7 @@ import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 
@@ -291,24 +292,30 @@ public class AppGrafica {
 		if(moneda1.getText()=="0") {
 			moneda1.setText(n);
 		}else {
-			if (moneda1.getText().length()>12) {
+			if (moneda1.getText().length()>11) {
 				//FALTA
 			} else {
 				String moneda=moneda1.getText();
 				moneda+= n;
 				moneda1.setText(moneda);
+				//hacer el calculo con selecMoneda1 y selecMoneda2
+				
 			}
 			
 		}
 		
 	}
 	
-	private static void rellenaCombobox(JComboBox combo) {
-		combo.addItem("Estados Unidos - Dolar");
-		combo.addItem("Europa - Euro");
-		combo.addItem("Japon - yen");
-		combo.addItem("China - Yuan");
-		combo.addItem("Corea del sur - Won");
+	public static void rellenaCombobox(JComboBox combo) {
+		
+		Metodos.generarDivisas();
+		ArrayList<Divisa> arrayList = Metodos.devolverDivisas();
+		
+		if (arrayList != null && arrayList.size() > 0) {
+			for (Divisa divisa : arrayList) {
+				combo.addItem(divisa.nombre);
+			}
+		}
 	}
 	
 	

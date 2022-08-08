@@ -88,7 +88,11 @@ public class Metodos {
 		divisas.add(new Divisa("MGA","Ar", "Ariary de Madagascar","Madagascar", 4121));
 		divisas.add(new Divisa("MYR","RM", "Ringgit","Malasia", 4.45));
 		
-		//return divisas;
+	}
+	
+
+	public static ArrayList<Divisa> devolverDivisas(){
+		return divisas;
 	}
 	
 	public static double cambio(double cantidad, String idMonedaCan, String idMonedaRec) {
