@@ -313,8 +313,13 @@ public class AppGrafica {
 		
 		if (arrayList != null && arrayList.size() > 0) {
 			for (Divisa divisa : arrayList) {
-				combo.addItem(divisa.nombre);
-				
+
+				combo.addItem(divisa.nombre+" - "+divisa.pais);
+				if (combo.getSelectedItem() == "Dolar - Estados Unidos") {
+					
+				}
+				System.out.println(combo.getSelectedIndex());
+
 			}
 		}
 	}
