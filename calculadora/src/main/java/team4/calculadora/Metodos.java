@@ -1,6 +1,5 @@
 package team4.calculadora;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Metodos {
@@ -95,10 +94,6 @@ public class Metodos {
 		
 	}
 	
-
-	public static ArrayList<Divisa> devolverDivisas(){
-		return divisas;
-	}
 	
 	public static double cambio(double cantidad, String idMonedaCan, String idMonedaRec) {
 		double dolar=0, res=0;

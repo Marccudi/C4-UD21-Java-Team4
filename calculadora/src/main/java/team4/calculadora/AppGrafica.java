@@ -298,6 +298,7 @@ public class AppGrafica {
 	private void botonNum(String n) {
 		if(moneda1.getText()=="0") {
 			moneda1.setText(n);
+			cambio();
 		}else {
 			if (moneda1.getText().length()>11) {
 				//FALTA
@@ -313,7 +314,7 @@ public class AppGrafica {
 	public static void rellenaCombobox(JComboBox<Divisa> combo) {
 
         Metodos.generarDivisas();
-        ArrayList<Divisa> arrayList = Metodos.devolverDivisas();
+        ArrayList<Divisa> arrayList = Metodos.getDivisas();
 
         if (arrayList != null && arrayList.size() > 0) {
             for (Divisa divisa : arrayList) {
