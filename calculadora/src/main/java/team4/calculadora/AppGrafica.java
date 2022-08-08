@@ -330,7 +330,7 @@ public class AppGrafica {
             cambio();
         } else if(e.getSource() == selecMoneda2) {
         	d = (Divisa) selecMoneda2.getSelectedItem();
-            simbolo1.setText(d.simbolo);
+            simbolo2.setText(d.simbolo);
             cambio();
         }
         
